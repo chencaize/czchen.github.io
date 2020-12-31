@@ -6,6 +6,61 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Personal WebSite</title>
+  <style type="text/css">
+     .container{
+      position:relative;
+    }
+    .car{
+      position:absolute;
+      animation:carMove-animation 5s linear infinite;
+     }
+    @media screen and (max-width:768px){
+      .car{
+        animation:carMove-animation 1s linear infinite;
+      }
+    }
+    .carBody{
+      width:100px;
+      height:50px;
+      border:1px solid black;
+    }
+    .carWheels{
+      width:100px;
+      height:25px;
+      position:relative;
+      display:flex;
+      justify-content:space-around;
+    }
+    .carWheel{
+      width:25px;
+      height:25px;
+      border:1px solid black;
+      border-radius:50%;
+      border-left-color:rgba(0,255,213,0.815);
+      animation:wheelRotate-animation 0.5s linear infinite;
+    }
+    
+    .font{
+      font-size:28px;
+      line-height:50px;
+    }
+    @keyframes carMove-animation{
+      0%{
+        left:0px;
+      }
+      100%{
+        left:100%;
+      }
+    }
+    @keyframes wheelRotate-animation{
+      0%{
+        transform:rotate(0deg);
+      }
+      100% {
+        transform:rotate(360deg);
+      }
+    }
+  </style>
   <script>
     var _hmt = _hmt || [];
     (function() {
@@ -18,7 +73,17 @@
 </head>
 
 <body>
-  <div id="root">Hello</div>
+  <div class="container">
+      <div class="car">
+        <div class="carBody">
+          <span class="font">Hello!</span>
+        </div>
+        <div class="carWheels">
+          <div class="carWheel"></div>
+          <div class="carWheel"></div>
+        </div>
+      </div>
+  </div>
 </body>
 
 </html>
